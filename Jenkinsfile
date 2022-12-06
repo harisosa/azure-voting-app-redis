@@ -22,9 +22,10 @@ pipeline {
 
       stage('Start test app') {
          steps {
+            sh 'chmod +x -R ./scripts/test_container.sh'
             sh '''
                docker-compose up -d
-               ./scripts/test_container.ps1
+               ./scripts/test_container.sh
             '''
          }
          post {
